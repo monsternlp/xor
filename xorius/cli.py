@@ -36,13 +36,13 @@ def select_messages(messages, max_total_tokens=4096, max_output_tokens=1024):
     tokens_num = 0
     selected = []
     for message in messages[::-1]:
-        role = 'system'
+        role = "system"
         if isinstance(message, AIMessage):
-            role = 'assistant'
+            role = "assistant"
         elif isinstance(message, HumanMessage):
-            role = 'user'
+            role = "user"
 
-        cur_token_num = num_tokens_from_messages([{'role': role, 'content': message.content}])
+        cur_token_num = num_tokens_from_messages([{"role": role, "content": message.content}])
         if tokens_num + cur_token_num + 2 + max_output_tokens > max_total_tokens:
             break
 
@@ -79,12 +79,12 @@ def main(api_key, temperature, max_tokens, proxy):
         openai.proxy = proxy
 
     max_total_tokens = 4096 - num_tokens_from_messages(
-        [{'role': 'system', 'content': system_message.content}]
+        [{"role": "system", "content": system_message.content}]
     )
     llm = ChatOpenAI(temperature=temperature, openai_api_key=api_key, max_tokens=max_tokens)
     memory = ChatMessageHistory()
     while True:
-        user_input = console.input('[bold red]You[/]: ').strip()
+        user_input = console.input("[bold red]You[/]: ").strip()
         if not user_input:
             continue
 
@@ -97,9 +97,9 @@ def main(api_key, temperature, max_tokens, proxy):
             )
 
             answer = llm([system_message] + messages).content.strip()
-            console.print(f'[bold green]Xorius[/]: {answer}\n')
+            console.print(f"[bold green]Xorius[/]: {answer}\n")
             memory.add_ai_message(answer)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

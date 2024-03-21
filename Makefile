@@ -4,9 +4,8 @@ lint: clean
 	- codespell
 
 format:
-	- pip install black isort -q
-	- black xorius/
-	- isort xorius/
+	- pip install ruff -q
+	- ruff format xorius/
 
 clean:
 	- find . -iname "*__pycache__" | xargs rm -rf
