@@ -10,17 +10,31 @@
 aiohttp==3.8.4
     # via
     #   langchain
-    #   openai
+    #   langchain-community
 aiosignal==1.3.1
     # via aiohttp
+anthropic==0.21.1
+    # via xorius (pyproject.toml)
+anyio==4.3.0
+    # via
+    #   anthropic
+    #   groq
+    #   httpx
+    #   langchain-core
+    #   openai
 async-timeout==4.0.2
     # via
     #   aiohttp
     #   langchain
 attrs==23.1.0
     # via aiohttp
+cachetools==5.3.3
+    # via google-auth
 certifi==2023.5.7
-    # via requests
+    # via
+    #   httpcore
+    #   httpx
+    #   requests
 charset-normalizer==3.1.0
     # via
     #   aiohttp
@@ -28,19 +42,89 @@ charset-normalizer==3.1.0
 click==8.1.3
     # via xorius (pyproject.toml)
 dataclasses-json==0.5.7
-    # via langchain
+    # via
+    #   langchain
+    #   langchain-community
+distro==1.9.0
+    # via
+    #   anthropic
+    #   groq
+    #   openai
+exceptiongroup==1.2.0
+    # via anyio
+filelock==3.13.1
+    # via huggingface-hub
 frozenlist==1.3.3
     # via
     #   aiohttp
     #   aiosignal
+fsspec==2024.3.1
+    # via huggingface-hub
+google-ai-generativelanguage==0.4.0
+    # via google-generativeai
+google-api-core[grpc]==2.17.1
+    # via
+    #   google-ai-generativelanguage
+    #   google-generativeai
+google-auth==2.29.0
+    # via
+    #   google-api-core
+    #   google-generativeai
+google-generativeai==0.4.1
+    # via xorius (pyproject.toml)
+googleapis-common-protos==1.63.0
+    # via
+    #   google-api-core
+    #   grpcio-status
 greenlet==2.0.2
     # via sqlalchemy
+groq==0.4.2
+    # via xorius (pyproject.toml)
+grpcio==1.62.1
+    # via
+    #   google-api-core
+    #   grpcio-status
+grpcio-status==1.62.1
+    # via google-api-core
+h11==0.14.0
+    # via httpcore
+httpcore==1.0.4
+    # via httpx
+httpx==0.27.0
+    # via
+    #   anthropic
+    #   groq
+    #   openai
+huggingface-hub==0.21.4
+    # via tokenizers
 idna==3.4
     # via
+    #   anyio
+    #   httpx
     #   requests
     #   yarl
-langchain==0.0.163
+jsonpatch==1.33
+    # via
+    #   langchain
+    #   langchain-core
+jsonpointer==2.4
+    # via jsonpatch
+langchain==0.1.13
     # via xorius (pyproject.toml)
+langchain-community==0.0.29
+    # via langchain
+langchain-core==0.1.33
+    # via
+    #   langchain
+    #   langchain-community
+    #   langchain-text-splitters
+langchain-text-splitters==0.0.1
+    # via langchain
+langsmith==0.1.31
+    # via
+    #   langchain
+    #   langchain-community
+    #   langchain-core
 markdown-it-py==2.2.0
     # via rich
 marshmallow==3.19.0
@@ -57,43 +141,101 @@ multidict==6.0.4
     #   yarl
 mypy-extensions==1.0.0
     # via typing-inspect
-numexpr==2.8.4
-    # via langchain
 numpy==1.24.3
     # via
     #   langchain
-    #   numexpr
-openai==0.27.6
+    #   langchain-community
+openai==1.14.2
     # via xorius (pyproject.toml)
-openapi-schema-pydantic==1.2.4
-    # via langchain
-packaging==23.1
-    # via marshmallow
+orjson==3.9.15
+    # via langsmith
+packaging==23.2
+    # via
+    #   huggingface-hub
+    #   langchain-core
+    #   marshmallow
+proto-plus==1.23.0
+    # via google-ai-generativelanguage
+protobuf==4.25.3
+    # via
+    #   google-ai-generativelanguage
+    #   google-api-core
+    #   google-generativeai
+    #   googleapis-common-protos
+    #   grpcio-status
+    #   proto-plus
+pyasn1==0.5.1
+    # via
+    #   pyasn1-modules
+    #   rsa
+pyasn1-modules==0.3.0
+    # via google-auth
 pydantic==1.10.7
     # via
+    #   anthropic
+    #   google-generativeai
+    #   groq
     #   langchain
-    #   openapi-schema-pydantic
+    #   langchain-core
+    #   langsmith
+    #   openai
     #   xorius (pyproject.toml)
 pygments==2.15.1
     # via rich
 pyyaml==6.0
-    # via langchain
+    # via
+    #   huggingface-hub
+    #   langchain
+    #   langchain-community
+    #   langchain-core
+regex==2023.12.25
+    # via tiktoken
 requests==2.30.0
     # via
+    #   google-api-core
+    #   huggingface-hub
     #   langchain
-    #   openai
+    #   langchain-community
+    #   langchain-core
+    #   langsmith
+    #   tiktoken
 rich==13.3.5
     # via xorius (pyproject.toml)
+rsa==4.9
+    # via google-auth
+sniffio==1.3.1
+    # via
+    #   anthropic
+    #   anyio
+    #   groq
+    #   httpx
+    #   openai
 sqlalchemy==2.0.12
-    # via langchain
-tenacity==8.2.2
-    # via langchain
-tqdm==4.65.0
     # via
     #   langchain
-    #   openai
-typing-extensions==4.5.0
+    #   langchain-community
+tenacity==8.2.2
     # via
+    #   langchain
+    #   langchain-community
+    #   langchain-core
+tiktoken==0.6.0
+    # via xorius (pyproject.toml)
+tokenizers==0.15.2
+    # via anthropic
+tqdm==4.65.0
+    # via
+    #   google-generativeai
+    #   huggingface-hub
+    #   openai
+typing-extensions==4.10.0
+    # via
+    #   anthropic
+    #   anyio
+    #   google-generativeai
+    #   groq
+    #   huggingface-hub
+    #   openai
     #   pydantic
     #   sqlalchemy
     #   typing-inspect
