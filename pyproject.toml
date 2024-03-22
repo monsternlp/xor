@@ -1,6 +1,6 @@
 [project]
 name = "xorius"
-version = "0.0.2"
+version = "0.0.3"
 description = "A LLM-based agent."
 authors = [
     {name = "Linusp", email = "linusp1024@gmail.com"},
