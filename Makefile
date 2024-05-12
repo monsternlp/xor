@@ -1,9 +1,9 @@
 lint: clean
 	- pip install ruff codespell -q
-	- ruff check xorius/
+	- ruff check --fix xorius/
 	- codespell
 
-format:
+format: lint
 	- pip install ruff -q
 	- ruff format xorius/
 
@@ -24,7 +24,7 @@ test: clean
 
 lock-requirements:
 	- pip install pip-tools -q
-	- pip-compile -o requirements.txt
+	- pip-compile --resolver=backtracking -U -o requirements.txt
 
 deps: lock-requirements
 	- pip-sync

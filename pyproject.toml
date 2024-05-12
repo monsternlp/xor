@@ -81,4 +81,5 @@ indent-width = 4
 
 [tool.ruff.lint]
 select = ["E", "F"]
+extend-select = ["I"]
 ignore = ["E201", "E202"]
